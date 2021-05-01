@@ -1,0 +1,35 @@
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-6">
+            <form [formGroup]="form">
+                <h3>Form Data</h3>
+                <div class="form-group">
+                    <label for="title">title</label>
+                    <input id="title" type="text" class="form-control" formControlName="title">
+                </div>
+                <div class="form-group">
+                    <label for="description">description</label>
+                    <input id="description" type="text" class="form-control" formControlName="description">
+                </div>
+                <div class="form-group">
+                    <label for="imageData">Image</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="imageData" (change)="changfileImage($event)">
+                            <label class="custom-file-label" for="imageData">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex w-100 justify-content-end">
+                    <button type="button" class="btn btn-primary mt-4 btn-submit" (click)="onSubmit()">submit</button>
+                </div>
+            </form>            
+        </div>
+        <div class="col-6">
+            <pre>{{ form.value | json }}</pre>
+        </div>
+    </div>
+</div>
